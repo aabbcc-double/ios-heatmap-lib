@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA33E6941DF6F92C008A0254 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BA33E6931DF6F92C008A0254 /* LICENSE */; };
 		BA3D86C61DF68EDA00FA62C0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3D86BB1DF68EDA00FA62C0 /* AppDelegate.m */; };
 		BA3D86C71DF68EDA00FA62C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA3D86BC1DF68EDA00FA62C0 /* Assets.xcassets */; };
 		BA3D86C81DF68EDA00FA62C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA3D86BE1DF68EDA00FA62C0 /* LaunchScreen.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA33E6931DF6F92C008A0254 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		BA3D869F1DF68E6700FA62C0 /* ios-heatmap-lib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-heatmap-lib.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA3D86BA1DF68EDA00FA62C0 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "sample-project/AppDelegate.h"; sourceTree = "<group>"; };
 		BA3D86BB1DF68EDA00FA62C0 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = "sample-project/AppDelegate.m"; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		BA3D86961DF68E6600FA62C0 = {
 			isa = PBXGroup;
 			children = (
+				BA33E6931DF6F92C008A0254 /* LICENSE */,
 				BAACA4051DF6E4EF00BF4C91 /* .gitignore */,
 				BA3D86B91DF68E7A00FA62C0 /* sample-project */,
 				BA3D86A11DF68E6700FA62C0 /* ios-heatmap-lib */,
@@ -160,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA33E6941DF6F92C008A0254 /* LICENSE in Resources */,
 				BAACA4061DF6E4EF00BF4C91 /* .gitignore in Resources */,
 				BA3D86CA1DF68EDA00FA62C0 /* Info.plist in Resources */,
 				BA3D86C91DF68EDA00FA62C0 /* Main.storyboard in Resources */,
