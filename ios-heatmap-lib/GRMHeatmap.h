@@ -12,6 +12,7 @@
 @interface GRMHeatmap : NSObject
 
 + (instancetype)sharedInstance;
++ (void)setIPadPrefix:(NSString *)prefix; // defaults to "ipad_"
 
 - (void)prepareWithBackendURL:(NSURL *)url;
 - (void)prepareWithBackend:(NSString *)url;

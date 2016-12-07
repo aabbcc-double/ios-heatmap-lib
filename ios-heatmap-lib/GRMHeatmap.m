@@ -17,6 +17,7 @@
 @interface GRMHeatmap ()
 
 @property NSURL *backendURL;
+@property NSString *prefixForIPad;
 @property NSMutableArray *buffer;
 @property NSMutableSet<NSString *> *renderedScenes;
 
@@ -82,11 +83,16 @@ typedef void (^GRMNetworkCompletionBlock)(NSDictionary *response);
         }] resume];
 }
 
++ (void)setIPadPrefix:(NSString *)prefix {
+        [GRMHeatmap sharedInstance].prefixForIPad = prefix;
+}
+
 + (instancetype)sharedInstance {
         static dispatch_once_t onceToken;
         static GRMHeatmap *instance = nil;
         dispatch_once(&onceToken, ^{
                 instance = [[GRMHeatmap alloc] init];
+                instance.prefixForIPad = @"ipad_";
         });
         return instance;
 }
@@ -106,9 +112,15 @@ typedef void (^GRMNetworkCompletionBlock)(NSDictionary *response);
 }
 
 - (void)addTouch:(CGPoint)p withSceneName:(NSString *)scene {
+        BOOL isIPAD = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+        
+        NSString *prefix = @"";
+        if (!!self.prefixForIPad && isIPAD)
+                prefix = self.prefixForIPad;
+        
         NSDictionary *t = @{
                             @"timestamp": @([NSDate date].timeIntervalSince1970),
-                            @"scene": scene,
+                            @"scene": [prefix stringByAppendingString:scene],
                             @"x": @(p.x),
                             @"y": @(p.y)
                             };
