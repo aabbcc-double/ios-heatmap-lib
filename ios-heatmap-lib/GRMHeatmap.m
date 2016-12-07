@@ -159,6 +159,11 @@ typedef void (^GRMNetworkCompletionBlock)(NSDictionary *response);
         // Try to render only once
         if ([self.renderedScenes containsObject:sceneName]) return;
         
+        BOOL isIPAD = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad;
+        NSString *prefix = @"";
+        if (!!self.prefixForIPad && isIPAD)
+                prefix = self.prefixForIPad;
+        
         
         CGSize size = view.bounds.size;
         CGPoint savedOffset = CGPointZero;
@@ -199,7 +204,7 @@ typedef void (^GRMNetworkCompletionBlock)(NSDictionary *response);
         NSData *data = UIImageJPEGRepresentation(snapshotImage, 0.3);
         if (!data) return;
         
-        NSURL __block * url = [[[self.backendURL URLByAppendingPathComponent:@"images"] URLByAppendingPathComponent:@"check"] URLByAppendingPathComponent:sceneName];
+        NSURL __block * url = [[[self.backendURL URLByAppendingPathComponent:@"images"] URLByAppendingPathComponent:@"check"] URLByAppendingPathComponent:[prefix stringByAppendingString:sceneName]];
         [GRMHeatmap requestWithURL:url withMethod:@"GET" withJSON:nil withCompletion:^(NSDictionary *response) {
                 NSInteger code = [response[@"meta"][@"code"] integerValue];
                 if (code != 0) return;
