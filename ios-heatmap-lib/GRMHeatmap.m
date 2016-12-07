@@ -212,7 +212,7 @@ typedef void (^GRMNetworkCompletionBlock)(NSDictionary *response);
                 BOOL needed = [response[@"data"] boolValue];
                 if (!needed) return;
                 
-                url = [[self.backendURL URLByAppendingPathComponent:@"images"] URLByAppendingPathComponent:sceneName];
+                url = [[self.backendURL URLByAppendingPathComponent:@"images"] URLByAppendingPathComponent:[prefix stringByAppendingString:sceneName]];
                 NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
                 request.HTTPBody = data;
                 request.HTTPMethod = @"POST";
